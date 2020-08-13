@@ -13,5 +13,12 @@ print(r.get("name"))
 r.set('name', 'heima')
 print(r.get("name"))
 print(r.mset({'age':"13", "gender":"man"}))
+print(r.mget("name", "age"))
+r.append('name', 'py40')
+print(r.get('name'))
+r.setex('code',60, 115)
+print(r.ttl('code'))
 
 print(r.keys())
+
+# 
