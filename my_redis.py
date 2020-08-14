@@ -3,7 +3,8 @@ import redis
 
 r = redis.Redis(host="localhost", port=6379, db=1)
 # r = redis.Redis(host='localhost', port=6379, db=0)
-# result = r.set('name', '张三')
+result = r.set('name', '张三')
+r.keys
 # print(result)
 # result = r.get('name')
 # print(result)
