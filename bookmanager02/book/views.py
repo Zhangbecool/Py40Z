@@ -68,6 +68,25 @@ book = BookInfo.objects.filter(Q(readcount__gt=20) | Q(id__lt=3))
 # 查询编号不等于3的图书。
 book = BookInfo.objects.filter(~Q(id=3))
 book = BookInfo.objects.exclude(id=3)
+from django.db.models import Avg, Max, Min, Sum, Count
+# 查询图书的总阅读量。
+book = BookInfo.objects.aggregate(Sum('readcount'))
+book = BookInfo.objects.aggregate(Max('readcount'))
+book = BookInfo.objects.aggregate(Min('readcount'))
+book = BookInfo.objects.aggregate(Avg('readcount'))
+book = BookInfo.objects.aggregate(Count('readcount'))
+# book = BookInfo.objects.aggregate(Count())
+book = BookInfo.objects.count()
+
+book = BookInfo.objects.all().order_by("-readcount")
+book = BookInfo.objects.all().order_by("-id")
+
+# 查询书籍为1的所有人物信息
+book = BookInfo.objects.get(id=1)
+book.peopleinfo_set.all()
+# 查询人物为1的书籍信息
+people = PeopleInfo.objects.get(id=1)
+people.book
 
 
 
