@@ -3,8 +3,9 @@ import redis
 
 r = redis.Redis(host="localhost", port=6379, db=1)
 # r = redis.Redis(host='localhost', port=6379, db=0)
-result = r.set('name', '张三')
-r.keys
+result = r.set('name', 'name is tom')
+r.getrange('name', 0 , 3)
+
 # print(result)
 # result = r.get('name')
 # print(result)
@@ -26,7 +27,8 @@ r.keys
 print('-'* 30)
 
 # r.hset('a1','name','tom')
-# r.hmset('a1',{'age':14, 'gender': 'man'})
+r.hmset('a1',{'age':14, 'gender': 'man'})
+r.hkeys()
 # print(r.hget('a1', 'name'))
 # print(r.hmget('a1', 'age', 'gender'))
 # print(r.hkeys('a1'))
