@@ -5,8 +5,8 @@ from django.db import models
 class BookInfo(models.Model):
     name = models.CharField(max_length=10)
     pub_date = models.DateField()
-    readcount = models.IntegerField()
-    commentcount = models.IntegerField()
+    readcount = models.IntegerField(default=0)
+    commentcount = models.IntegerField(default=0)
     is_delete = models.BooleanField(default=0)
 
     class Meta:
