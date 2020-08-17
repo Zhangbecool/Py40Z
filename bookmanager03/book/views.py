@@ -63,5 +63,121 @@ def listing(request):
     return render(request, 'index.html', {'pages': pages})
 
 
+
+def re(request, cat_id, good_id):
+    """
+    url形式提交
+    :param request:
+    :param cat_id:
+    :param good_id:
+    :return:
+    """
+    print('cat_id:{}, good_id:{}'.format(cat_id, good_id))
+
+    return HttpResponse('内容')
+
+
+def getlist(request):
+    """
+    get方式 ？后key：value 方式提交
+    :param request:
+    :return:
+    """
+    # res = request.GET.get('key')   # 只能接受一个值 多个取最后一个
+    # print(res)
+    res = request.GET.getlist('key')    # 接受的是一个列表
+    print(res)
+
+    return HttpResponse('内容')
+
+
+def postl(request):
+    """
+    form 表单形式提交
+    :param request:
+    :return:
+    """
+    res = request.POST.get('a')
+    res2 = request.POST.get('b')
+    alist = request.POST.get('alist')
+    print("a:{}  b:{}  alist:{}".format(res, res2, alist))
+
+    return HttpResponse('内容')
+
+
+import json
+
+def post_json(request):
+    """
+    json 方式请求
+    :param request:
+    :return:
+    """
+    request_body = request.body
+    request_str = request_body.decode()
+    print(request_str)
+    request_dict = json.loads(request_str)
+    print(request_dict)
+    print(request_dict['a'])
+    return HttpResponse('内容')
+
+
+def get_header(request):
+    """
+    获取请求头
+    :param request:
+    :return:
+    """
+    res = request.META['HTTP_AAA']
+    print(res)
+    print(request.method)       # 请求方法
+    print(request.user)         # 请求的用户
+    print(request.path)         # 请求的路径
+    print(request.encoding)     # 请求的编码格式 none则使用浏览器默认
+    return HttpResponse('内容')
+
+def respons_(request):
+    """
+    编辑相应体
+    :param request:
+    :return:
+    """
+    # content 不能是对象
+    # content 就是响应体的数据
+
+    # content_type 响应数据的类型
+    # MIME 类型
+    # 语法格式: 大类/小类
+    # text/html  application/json
+
+    # status 响应状态码
+    # 200 表示成功
+
+    respons = HttpResponse(content="内容", content_type='text/html', status=200)
+    return respons
+
+
+from django.http import JsonResponse
+
+def jsonrespon(request):
+    """
+    Json子类
+    :param request:
+    :return:
+    """
+    cont = {
+        "a": "aaa",
+        "b": "bbb"
+    }
+    # cont = json.dumps(cont)
+    # return HttpResponse(content=cont)
+    return JsonResponse(cont)   # 可以直接传递字典 内部进行了dumps方法
+
+from django.shortcuts import redirect
+def redirect1(request):
+    return redirect('http://www.baidu.com')
+
+
+
 def index(request):
     return HttpResponse('ok')
