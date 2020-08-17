@@ -88,7 +88,7 @@ def getlist(request):
     res = request.GET.getlist('key')    # 接受的是一个列表
     print(res)
 
-    return HttpResponse('内容')
+    return HttpResponse('gtlist')
 
 
 def postl(request):

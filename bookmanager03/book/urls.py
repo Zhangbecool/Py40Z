@@ -1,10 +1,11 @@
 from django.urls import path
 
-from book.views import index, listing, re, getlist, postl, post_json, get_header, respons_, jsonrespon, redirect1
+from book.views4 import index, re, getlist, postl, post_json, get_header, respons_, jsonrespon, redirect1
+# from book.views import listing
 
 urlpatterns = [
     path('index/', index),
-    path('listing/', listing),
+    # path('listing/', listing),
     path('<cat_id>/<good_id>', re),
     path('getlist/', getlist),
     path('postl/', postl),
