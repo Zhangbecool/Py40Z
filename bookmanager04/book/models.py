@@ -9,7 +9,7 @@ class BookInfo(models.Model):
     commentcount = models.IntegerField(default=0, verbose_name='评论量')
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
 
-    class META:
+    class Meta:
         db_table = 'bookinfo'
         verbose_name = '书籍信息'
 

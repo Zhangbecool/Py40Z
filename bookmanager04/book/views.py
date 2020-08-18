@@ -34,10 +34,11 @@ def get_cookie(request):
 
 
 def set_session(request):
-    name = request.session['name'] = 'tom'
+    name = request.session['user'] = 'tom'
     age = request.session['age'] = 13
     # print(name)
     request.session.set_expiry(60 * 2)
+    print(request.user)
     return HttpResponse('set_session')
 
 
@@ -63,3 +64,13 @@ class register(View):
 
     def post(self, request):
         return HttpResponse('post')
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class mywork(LoginRequiredMixin,View):
+
+    def get(self, request):
+        return HttpResponse('个人中心 get')
+
+    def post(self, request):
+        return HttpResponse('个人中心 post')

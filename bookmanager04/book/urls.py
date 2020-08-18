@@ -26,4 +26,5 @@ urlpatterns = [
     path('set_session/', set_session),
     path('get_session/', get_session),
     path('register/', register.as_view()),
+    path('mywork/', mywork.as_view()),
 ]
