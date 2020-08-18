@@ -50,6 +50,16 @@ def get_session(request):
     # request.session.flush()     # 删除session的值和键
     # del request.session['name']
 
-
-
     return HttpResponse(age)
+
+from django.views import View
+
+
+
+class register(View):
+
+    def get(self, request):
+        return HttpResponse('get')
+
+    def post(self, request):
+        return HttpResponse('post')
