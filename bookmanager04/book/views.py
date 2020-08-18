@@ -35,12 +35,21 @@ def get_cookie(request):
 
 def set_session(request):
     name = request.session['name'] = 'tom'
-    print(name)
-
+    age = request.session['age'] = 13
+    # print(name)
+    request.session.set_expiry(60 * 2)
     return HttpResponse('set_session')
 
 
 def get_session(request):
-    name = request.session['name']
 
-    return HttpResponse(name)
+    name = request.session.get('name', '没有数据')
+    age = request.session.get('age', '没有数据')
+    # print('name')
+    # request.session.clear()   # 删除session的值
+    # request.session.flush()     # 删除session的值和键
+    # del request.session['name']
+
+
+
+    return HttpResponse(age)
