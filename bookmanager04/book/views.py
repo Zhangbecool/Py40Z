@@ -34,4 +34,13 @@ def get_cookie(request):
 
 
 def set_session(request):
-    pass
+    name = request.session['name'] = 'tom'
+    print(name)
+
+    return HttpResponse('set_session')
+
+
+def get_session(request):
+    name = request.session['name']
+
+    return HttpResponse(name)

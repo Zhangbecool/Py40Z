@@ -23,4 +23,6 @@ urlpatterns = [
     # 转换器
     path('p/<int:tieba_id>', tieba),
     path('register/<Phone:num>/', num),
+    path('set_session/', set_session),
+    path('get_session/', get_session),
 ]
