@@ -1,6 +1,6 @@
 from django.urls import path
 
-from book.views4 import index, re, getlist, postl, post_json, get_header, respons_, jsonrespon, redirect1
+from book.views import index, re, getlist, postl, post_json, get_header, respons_, jsonrespon, redirect1
 # from book.views import listing
 
 urlpatterns = [

@@ -154,6 +154,7 @@ def respons_(request):
     # 200 表示成功
 
     respons = HttpResponse(content="内容", content_type='text/html', status=200)
+    respons['hhh'] = '我是响应头'
     return respons
 
 
