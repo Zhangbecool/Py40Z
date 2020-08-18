@@ -11,6 +11,10 @@ def tieba(request, tieba_id):
     return HttpResponse(tieba_id)
 
 
+def num(requset, num):
+    return HttpResponse(num)
+
+
 def set_cookie(request):
     response = HttpResponse('set_cookie')
     response.set_cookie('name', 'tom', max_age=60*2)
@@ -30,4 +34,4 @@ def get_cookie(request):
 
 
 def set_session(request):
-    request.session('name', 'tom')
+    pass
