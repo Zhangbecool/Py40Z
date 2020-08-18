@@ -5,4 +5,5 @@ from book.views import *
 urlpatterns = [
     path('index/', index),
     path('set_cookie/', set_cookie),
+    path('get_cookie/', get_cookie),
 ]
