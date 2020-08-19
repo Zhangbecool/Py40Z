@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+		<ol>
+			<!-- 列表循环 -->
+			<li v-for = '(song, index) in info'>{{song}},{{index + 1}}</li>
+		</ol>
+		<ul>
+			<!-- 对象循环 -->
+			<li v-for = '(value, key) in object'>{{key}}:{{value}}</li>
+		</ul>
+		<ol>
+			<!-- 对象列表循环 -->
+			<li v-for = 'song in songlist'>{{song.name}}: {{song.song}}</li>
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'python',
+			info: ['So Cute~', 'I WILL Be OK', 'Sign', 'Wolves'],
+			object:{
+				name: '谢春花',
+				song: '理想三旬',
+				album: '音乐好朋友'
+			},
+
+			songlist: [
+				{name: '宋冬野', song: '安河桥'},
+				{name: '邝美云', song: '堆积情感'},
+				{name: 'Lana Del Rey', song: 'Young And Beautiful'}
+				]
+		}
+		
+	})
+</script>
+</html>
