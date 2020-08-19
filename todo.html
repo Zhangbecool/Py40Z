@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+		<input type="text" name="text" v-model = 'song'>
+		<button @click='OO'>Yes！</button>
+		<ol>
+			<li v-for='song in songlist'>{{song}}</li>
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data:{
+			message: '此时已莺飞草长爱的人正在路上',
+			song: '',
+			songlist: []
+		},
+		methods: {
+			OO: function(){
+				this.songlist.push(this.song),
+				// 点击后将song设为空
+				this.song = ''
+			}
+		}
+	})
+</script>
+</html>
