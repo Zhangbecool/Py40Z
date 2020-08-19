@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+		<span v-if = 'istrue'>愿世间美好与你环环相扣</span>
+		<p v-if = 'level === 1'>皇帝</p>
+		<p v-else-if = 'level === 2'>皇亲</p>
+		<p v-else-if = 'level === 3'>国戚</p>
+		<p v-else>大臣</p>
+		<hr>
+		<p v-if = 'seen'>if如果为False则标签不会在页面中存在</p>
+		<hr>
+		<p v-show = 'seen'>show如果为False 标签也会在页面中存在</p>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'hello',
+			istrue: false,
+			level: 1,
+			seen: false
+		}
+	})
+</script>
+</html>
