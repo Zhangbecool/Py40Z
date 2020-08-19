@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+		<!-- 绑定表达式 -->
+		<button v-on:click = 'count ++'>好运加一</button>
+		<p>好运{{count}}</p>
+		<!-- 绑定函数 -->
+		<button @click = 'boom'>嘻嘻</button>
+		<!-- 带参数函数 -->
+		<button @click = 'luck(count)'>哈哈</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: '愿世间美好与你环环相扣',
+			count: 0
+		},
+		methods: {
+			boom: function(){
+				alert('运气爆棚了：' + this.count)
+			},
+
+			luck: function(one){
+				alert('luck' + one)
+			}
+		}
+
+	})
+</script>
+</html>
